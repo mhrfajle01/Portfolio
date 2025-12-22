@@ -22,6 +22,7 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#coding-projects" class="nav-link">Coding Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <button class="theme-toggle" id="themeToggle">
@@ -112,7 +113,6 @@
         </div>
     </section>
 
-  <!-- === SKILLS SECTION FIXED === -->
   <section id="skills">
     <div class="container">
       <div class="section-title">
@@ -320,6 +320,36 @@
         </div>
     </section>
 
+    <!-- Coding Projects Section -->
+    <section id="coding-projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Coding Projects</h2>
+                <p>A collection of my personal coding projects and experiments.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <a href="#" class="project-link" data-project-url="Coding-Projects/Work-Report/index.html">
+                        <div class="project-img-placeholder">
+                            <i class="fas fa-file-alt"></i>
+                            <h4>Work-Report</h4>
+                        </div>
+                        <div class="project-content">
+                            <h3>Work-Report Project</h3>
+                            <p>A web application to generate and manage daily work reports efficiently. Built with pure HTML, CSS, and JavaScript.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Add more project cards here in the future -->
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -447,5 +477,15 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <!-- Include our JavaScript file -->
     <script src="script.js"></script>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal-overlay">
+        <div class="modal-container">
+            <button id="closeModal" class="modal-close-btn">&times;</button>
+            <div id="modalContent" class="modal-content">
+                <!-- Project iframe will be loaded here -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>

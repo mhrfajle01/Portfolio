@@ -228,10 +228,53 @@ document.addEventListener('DOMContentLoaded', function() {
                 formMessage.style.display = 'block';
                 console.error('Error sending email:', error);
             })
-            .finally(() => {
-                // Re-enable submit button
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
+                        .finally(() => {
+                            // Re-enable submit button
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                        });
+                });
             });
-    });
-});
+            
+            // Project Modal Logic
+            document.addEventListener('DOMContentLoaded', () => {
+                const modalOverlay = document.getElementById('projectModal');
+                const modalContent = document.getElementById('modalContent');
+                const closeModal = document.getElementById('closeModal');
+                const projectLinks = document.querySelectorAll('.project-link');
+            
+                projectLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const projectUrl = this.getAttribute('data-project-url');
+                        
+                        if (projectUrl) {
+                            // Clear previous project
+                            modalContent.innerHTML = '';
+            
+                            // Create iframe
+                            const iframe = document.createElement('iframe');
+                            iframe.src = projectUrl;
+                            iframe.setAttribute('frameborder', '0');
+                            
+                            modalContent.appendChild(iframe);
+                            modalOverlay.style.display = 'flex';
+                        }
+                    });
+                });
+            
+                const closeProjectModal = () => {
+                    modalOverlay.style.display = 'none';
+                    // Important to remove the iframe to stop the project from running
+                    modalContent.innerHTML = ''; 
+                };
+            
+                closeModal.addEventListener('click', closeProjectModal);
+                modalOverlay.addEventListener('click', (e) => {
+                    // Close only if the overlay itself is clicked, not the content inside
+                    if (e.target === modalOverlay) {
+                        closeProjectModal();
+                    }
+                });
+            });
+            
